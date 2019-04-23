@@ -10,6 +10,8 @@
     </ul>
   </div>
   <% end %>
+
+    <% if @author.name.empty?
     <%= label_tag "name", "Name" %>
     <%= text_field_tag "name" %>
   </div>
