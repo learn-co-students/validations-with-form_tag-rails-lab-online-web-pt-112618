@@ -27,6 +27,16 @@
   <% end %>
     <%= label_tag "name", "Email" %>
     <%= text_field_tag "email" %>
-  </div>  
+  </div>
+
+  <% if @author.errors[:phone_number].empty? %>
+    <div class="field">
+  <% else %>
+    <div class="field_with_errors">
+  <% end %>
+  <%= label_tag "name", "Phone Number" %>
+  <%= text_field_tag "phone number" %>
+</div>
+
   <%= submit_tag "Create Author" %>
 <% end %>
