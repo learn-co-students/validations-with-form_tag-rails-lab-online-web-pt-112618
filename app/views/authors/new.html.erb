@@ -11,14 +11,22 @@
   </div>
   <% end %>
 
-    <% if @author.name.empty?
+    <% if @author.errors[:name].empty? %>
+      <div class="field">
+    <% else %>
+      <div class="field_with_errors">
+    <% end %>
     <%= label_tag "name", "Name" %>
     <%= text_field_tag "name" %>
   </div>
 
-  <div class="field<%= ' field_with_errors' if @author.errors[:email].any? %>">
+  <% if @author.errors[:email].empty? %>
+    <div class="field">
+  <% else %>
+    <div class="field_with_errors">
+  <% end %>
     <%= label_tag "name", "Email" %>
-    <%= text_field_tag "email", @author.email %>
-  </div>
+    <%= text_field_tag "email" %>
+  </div>  
   <%= submit_tag "Create Author" %>
 <% end %>
